@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurator Index</title>
+    <!-- this title is important because it manages a specific javascript task.
+         If ever the need arises to rename this page's title then head to file 'scripts/orbit.js' , line: 926 
+         or search the 'orbit.js' file for 'Configurator Index' and change the value to the new title for this page-->
+    <script src="scripts/meta.js"></script>     
+    <style>
+        body{
+            background-color: #181818;
+            color:#fff;
+            font-family: "Manrope",Arial,Helvetica,sans-serif
+        }
+        .menu{
+            display: flex;
+            justify-content: space-between;
+            align-content: space-between;
+            flex-wrap: wrap;
+            width: 90%;
+            margin:0 5%;
+        }
+        .menu_item{
+            display: inline-block;
+            height: 20vw;
+            width: 20vw;
+            min-height: 200px;
+            min-width: 200px;
+            max-height: 400px;
+            max-width: 400px;
+            margin: 3em 0;
+            flex-basis: initial;
+            box-shadow: #000 0 0 5px;
+        }
+        .menu_item>canvas{
+            cursor: grabbing;
+        }
+        .info{
+            text-align: center;
+            width: 100%;
+            line-height: 1.2em;
+            height: 2.4em;
+            font-size: 20px;
+            box-shadow: #000 0 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        #test{
+            visibility: hidden;
+            position: fixed;
+            top: 1000%;
+            left: 1000%;
+        }
+    </style>
+</head>
+<body>
+    <div style="font-weight: bolder;text-transform: uppercase;font-size: 2em;text-align: center;margin: 1em 0 .3em 0 ;">3D Configurator</div>
+    <div style="font-size: 15px; text-align: center;">use mouse to rotate models, click on model name to initiate configurator</div>
+    <div class="menu" id="loop_ul">
+        <div class="menu_item" id="test">
+            <div class="info"><span>test</span></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    for(let j=0;j<Object.keys(meta).length;j++){
+        document.querySelector('#loop_ul').innerHTML += '<div class="menu_item" id="scene_'+parseInt(j+1)+'"><div class="info"><span>'+Object.keys(meta)[j]+'</span></div></div>'
+    }
+    var clicked = document.querySelectorAll('.menu_item');
+    clicked.forEach((e)=>{
+        e.children[0].addEventListener('click', ()=>{
+            var mill = e.getElementsByTagName('span')[0].innerHTML;
+            window.location = 'Configurator.html?'+mill;
+        })
+    })
+</script>
+
+<script type="module">
+    // import { TrackballControls } from './scripts/track.js';
+    import { OrbitControls } from './scripts/orbit.js';
+    import * as THREE from './scripts/module.js';
+    import { STLLoader } from './scripts/STLloader.js';
+
+    var camera = [], scene = [], renderer = [], geometry, material, mesh, controls = [],limitU = Object.keys(meta).length;
+    var renderer_test,scene_test, camera_test,controls_test;
+    init();
+    animate();
+
+  function init() {
+
+    var element = document.querySelector('#test');
+    var h = element.offsetHeight;
+    var w = element.offsetWidth;
+
+    var ambientLight = new THREE.AmbientLight(0x0c0c0c);
+    var spotLight = new THREE.SpotLight(0xffffff);
+
+    (function(e){
+        scene_test = new THREE.Scene();
+        scene_test.background = new THREE.Color( 0xcccccc );
+
+        camera_test = new THREE.PerspectiveCamera(45, w/h, 0.1, 1000);
+        // position and point the camera to the center of the scene
+        camera_test.position.x = 100;
+        camera_test.position.y = 100;
+        camera_test.position.z = 100;
+        camera_test.lookAt(new THREE.Vector3(0, 0, 0));
+        scene_test.add(camera_test);
+
+        new STLLoader().load( './models/solid.stl', function ( geometry ) {
+            var  meshMaterial = new THREE.MeshNormalMaterial();
+            var mesh = new THREE.Mesh( geometry, meshMaterial );
+            scene_test.add(mesh);
+            mesh.geometry.center();
+        } );
+
+        renderer_test = new THREE.WebGLRenderer({antialias:true});
+        renderer_test.setSize(w,h);
+        renderer_test.domElement.id = 'sceneC_T';
+        document.querySelector('#test').prepend(renderer_test.domElement);
+
+        controls_test = new OrbitControls( camera_test, renderer_test.domElement);
+      	controls_test.zoomSpeed = 0;
+        controls_test.autoRotate = true;  
+    })();
+
+    for(let i=0;i<limitU;i++){
+        scene[i] = new THREE.Scene();
+        scene[i].background = new THREE.Color( 0xcccccc );
+
+        /* Camera Start */
+        camera[i] = new THREE.PerspectiveCamera(45, w/h, 0.1, 1000);
+        // position and point the camera to the center of the scene
+        camera[i].position.x = 100;
+        camera[i].position.y = 100;
+        camera[i].position.z = 100;
+        camera[i].lookAt(new THREE.Vector3(0, 0, 0));
+        scene[i].add(camera[i]);
+
+        new STLLoader().load( './models/solid.stl', function ( geometry ) {
+            var  meshMaterial = new THREE.MeshNormalMaterial();
+            var mesh = new THREE.Mesh( geometry, meshMaterial );
+            scene[i].add(mesh);
+            mesh.geometry.center();
+        } );
+
+        renderer[i] = new THREE.WebGLRenderer({antialias:true});
+        renderer[i].setSize(w,h);
+        renderer[i].domElement.id = 'sceneC_'+i;
+        document.querySelector('#scene_'+(i+1)).prepend(renderer[i].domElement);
+
+        controls[i] = new OrbitControls( camera[i], renderer[i].domElement);
+      	controls[i].zoomSpeed = 0;
+        controls[i].autoRotate = true;  
+
+    }
+
+    // controls.rotateSpeed = 1.0;
+  	// controls.zoomSpeed = 1.2;
+  	// controls.panSpeed = 2;
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer_test.render(scene_test, camera_test);
+    controls_test.update();
+    for (let i=0;i<limitU;i++){
+        renderer[i].render(scene[i], camera[i]);
+        controls[i].update();
+        // scene[i].mesh.rotation.y *= 0.1; 
+    }
+  }
+
+  window.addEventListener( 'resize', () => {
+    var element = document.querySelector('#test');
+    var h = element.offsetHeight;
+    var w = element.offsetWidth;
+    const aspect = w/h;
+    for(let i=0;i<limitU;i++){
+        camera[i].aspect = aspect;
+        camera[i].updateProjectionMatrix();
+        renderer[i].setSize(w,h);
+    }
+  });
+
+</script>

@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<style>
+body {
+	font-family: "Manrope", Arial, Helvetica, sans-serif;
+}
+.form {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 2%;
+	-moz-column-gap: 4%;
+	column-gap: 4%;
+	display: grid;
+	grid-template-columns: 48% 48%;
+	background-color: #ececec;
+	padding-bottom: 2em;
+}
+.form>div {
+	margin: 4% 0 0 5%;
+}
+
+.form>div>label {
+	width: 100%;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.form input[type^="text"],
+.form input[type="email"],
+.form input[type="url"],
+.form input[type="tel"],
+.form textarea {
+	padding: .5em 1em;
+	width: 90%;
+}
+
+.feature_row>* {
+	display: inline-block;
+}
+
+.feature_row>span {
+	width: 200px;
+	font-weight: bold;
+	font-size: 1.2em;
+	vertical-align: top;
+	margin-top: 1em;
+	text-align: center;
+}
+
+.features {
+	display: inline-flex;
+}
+
+.features>div {
+	width: 60px;
+	height: 60px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.steps {
+	display: inline-flex;
+	flex-direction: column;
+	width: 16.1%;
+}
+#sbank,.loopProfile{
+min-width: 13em;
+margin-right: 1ch;
+}
+
+label>input[type="number"]:nth-child(2) {
+	width: 9ch;
+	vertical-align: bottom;
+}
+
+label>input:nth-child(4),
+label>input:nth-child(5) {
+	width: 100%;
+}
+
+span.title {
+	text-transform: capitalize;
+	vertical-align: bottom;
+}
+
+.steps>label {
+	background-color: #e4e4e4;
+	margin-bottom: 1ch;
+	padding: 5px .5ch;
+}
+
+span.unit {
+	font-weight: lighter;
+	font-size: .8em;
+	margin-left: .2ch;
+	color: rgb(65, 65, 65);
+}
+
+#general input[type="range"] {
+	width: 60%;
+}
+
+#general>label {
+	display: table-cell;
+}
+
+.highlight,
+#fcool.initial,
+#frogh.c2 {
+	background-color: #59abff;
+	filter: invert(1) brightness(1.7);
+}
+
+.heading {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2em;
+	width: 100%;
+	text-align: center;
+	display: block;
+	margin: .5em 0 .5em 0;
+	background: #ff9d3c;
+	padding-top: 0.2em;
+	color: white;
+}
+
+
+input[type=range] {
+	cursor: pointer;
+	-webkit-appearance: none;
+	background: transparent;
+	overflow: hidden;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 6px;
+	background: #fff;
+	border: none;
+	border-radius: 30px;
+}
+
+input[type=range]::-moz-range-track {
+	width: 100%;
+	height: 6px;
+	background: #fff;
+	border: none;
+	border-radius: 30px;
+}
+
+input[type=range]::-ms-track {
+	width: 100%;
+	height: 6px;
+	background: #fff;
+	border: none;
+	border-radius: 30px;
+}
+
+input[type=range]::-moz-range-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: #fc8b19;
+	margin-top: -5px;
+}
+
+input[type=range]::-ms-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: #fc8b19;
+	margin-top: -5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 16px;
+	width: 16px;
+	border-radius: 50%;
+	background: #f17900;
+	margin-top: -5px;
+	box-shadow: -800px 0 0 800px #ff9d3c;
+}
+
+input[type="range"]::-ms-fill-lower {
+	background-color: #ff9d3c;
+	height: 30%;
+	border-radius: 30px;
+}
+
+input[type="range"]::-moz-range-progress {
+	background-color: #ff9d3c;
+	height: 30%;
+	border-radius: 30px;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]:-moz-focusring {
+	outline: 1px solid white;
+	outline-offset: -1px;
+}
+
+#general {
+	display: grid;
+	margin-top: 2ch;
+	width: 100%;
+	grid-template-rows: 16% 30% 30% 30%;
+	grid-template-columns: 30% 30% 30%;
+	-moz-column-gap: 5%;
+	     column-gap: 5%;
+}
+
+.flex {
+	width: 100%;
+	display: flex;
+	justify-content: left;
+	overflow: auto;
+	margin: 0 1em 0 0;
+	overflow-x: overlay;
+	padding-bottom: 15px;
+}
+
+.butts {
+	display: inline-block;
+	font-size: 1.3em;
+	border: 2px solid grey;
+	padding: .5em 3em;
+	background-color: #d0d0d0;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+
+}
+
+.butts:hover {
+	border-color: #ff9d3c;
+}
+
+.butts:active {
+	background-color: #ff9d3c;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+input:checked+.slider {
+	background-color: #d87632 !important;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 25px;
+	height: 12px;
+	line-height: normal;
+	top: 7px;
+}
+
+.slider {
+	border-radius: 34px;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: .4s;
+	background-color: grey;
+}
+
+input:checked+.slider:before {
+	transform: translateX(11px);
+	-webkit-transform: translateX(11px);
+	-ms-transform: translateX(11px);
+	-moz-transform: translateX(11px);
+	-o-transform: translateX(11px);
+}
+
+.slider:before {
+	border-radius: 50%;
+	position: absolute;
+	content: "";
+	height: 10px;
+	width: 10px;
+	left: 2px;
+	top: 1px;
+	background-color: #fff;
+	transition: .2s;
+	transition-timing-function: ease;
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+	-ms-transition: .2s;
+	-o-transition: .2s;
+}
+
+.switch-wrapper>label.switch::before {
+	content: "convex";
+	position: absolute;
+	color: grey;
+	right: 110%;
+	font-size: .8em;
+}
+
+.switch-wrapper>label.switch::after {
+	content: 'concave';
+	font-size: .8em;
+	position: absolute;
+	color: grey;
+	left: 110%;
+	white-space: nowrap;
+}
+
+.prof {
+	background-color: #ff9d3c;
+	margin-bottom: .2em;
+	padding: 5px 5px 0;
+	color: white;
+	font-weight: bold;
+	letter-spacing: .2ch;
+}
+
+#comments {
+	grid-row: 4/6;
+	display: flex;
+	flex-direction: column;
+}
+
+#validation {
+	grid-column: 1/3;
+	display: flex;
+	justify-content: space-between;
+}
+
+.legend-graph{
+	display: flex;
+}
+.lg-p{
+	box-sizing: border-box;
+	display: inline-block;
+	text-align: center;
+}
+.border{
+	height: 10px;
+	box-sizing: border-box;
+	border: 2px solid #000;
+	border-bottom: none;
+	margin-right: -2px;
+}
+#coj1{
+fill: transparent;
+}
+.fixedpopup{
+position: fixed;
+top: 100%;
+left: 0%;
+height: 100vh;
+width: 100%;
+overflow: auto;
+background-color: #00000055;
+padding: 4em;
+box-sizing: border-box;
+display: flex;
+/* flex-direction: column; */
+align-items: center;
+justify-content: center;
+transition: .1s;
+-webkit-backdrop-filter: blur(1px);
+        backdrop-filter: blur(1px);
+}
+.fixedpopup.open{
+top: 0%;
+}
+.fixedpopup .main{
+position: relative;
+background-color: #fff;
+padding: 2em;
+border-radius: 10px;
+box-shadow: 0 0 10px -4px #000;
+}
+.fixedpopup .close{
+position: absolute;
+top: 0%;
+right: 0%;
+text-align: center;
+font-size: 1.5em;
+background-color: #ff084a;
+padding: 5px;
+float: right;
+line-height: 1em;
+color: #fff;
+width: 1em;
+font-weight: 600;
+cursor: pointer;
+transition: .1s ease-in-out;
+}
+.popform .cols{
+-moz-columns: 2;
+     columns: 2;
+}
+.popform fieldset{
+/* padding: 0; */
+border-radius: 3px;
+}
+.popform input{
+width: 15em;
+height: 1.5em;
+font-size: 1.2em;
+padding: 5px;
+}
+.popform button{
+border-radius: 5px;
+border: 0;
+outline: 0;
+padding: 5px 28px;
+font: inherit;
+font-size: 1.2em;
+background-color: #2bf97a;
+box-shadow: 0 0 9px -5px #000;
+color: #fff;
+font-weight: 600;
+text-transform: uppercase;
+cursor: pointer;
+transition: .2s;
+}
+input.fullwidth{
+width: 100%;
+box-sizing: border-box;
+}
+.loopProfile:nth-child(n+5){
+display: none;
+}
+.probutton{
+width: 100%;
+text-align: center;
+outline: 0;
+font-weight: 700;
+font-size: 2em;
+cursor: pointer;
+border: .4ch solid #fff;
+box-shadow: 0 0 13px -5px #000;
+flex-shrink: 0;
+transition: .1s;
+color: #fff;
+-webkit-user-select: none;
+   -moz-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+}
+.addProfile{
+	flex-grow: 1;
+	background-color: #1fe967;
+	margin-bottom: 10px;
+}
+.probutton[disabled=true]{
+	background-color: lightgrey;
+	color: grey;
+	border-color: grey;
+	opacity: .5;
+	pointer-events: none;
+}
+.addProfile .count{
+	font-size: 1rem;
+}
+.delProfile{
+	padding: 20px 0;
+	background-color: #ff9d3c;
+}
+.probutton:active{
+	transform: scale(0.99);
+}
+.bigflex{
+display: flex;
+}
+.flexcol{
+	display: flex;
+	flex-direction: column;
+}
+.whitess{
+	white-space: nowrap;
+	margin: 0 13px;
+}
+@media screen and (max-width: 768px) {
+	.flex {
+			/* flex-direction: column; */
+	}
+
+	.steps {
+			width: 100%;
+	}
+
+	.feature_row>span {
+			display: block;
+			text-align: left;
+	}
+
+	.features>div {
+			width: 14vw;
+			height: 14vw;
+			margin: 1vw;
+	}
+
+	.form {
+			grid-template-columns: 100%;
+	}
+
+	.form>div {
+			margin: 4% 5% 0 5%;
+	}
+
+	#validation {
+			grid-column: 1/2;
+			display: initial;
+	}
+
+	#validation label {
+			text-align: center;
+	}
+	.popform .cols{
+		columns: 1;
+	}
+	.bigflex{
+		flex-direction: column;
+	}
+	.flexcol{
+		flex-direction: row;
+	}
+	.probutton{
+		width: auto;
+		height: 100%;
+		margin-bottom: 0;
+	}
+	.addProfile{
+		margin-right: 10px;
+	}
+	#general{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+	#general>label{
+		width: 45%;
+	}
+	#general>.prof{
+		flex-basis: 100%;
+    flex-shrink: 0;
+	}
+}
+label.dnb{
+	/* display: none; */
+}
+</style>
+</head>
+
+<body onload="res()" onresize="res()">
+	<span id="heading" class="heading">Live Tool Configurator</span>
+	<div class="legend-graph" style="margin-left: 6.59016px;">
+		<span id="lagend_noj" class="lg-p" style="display: none; width: 0px;">Nose<div class="border"></div></span>
+		<span id="lagend_p1" class="lg-p" style="display: inline-block; width: 197.685px;">P1<div class="border"></div></span>
+		<span id="lagend_p2" class="lg-p" style="display: none; width: 0px;">P2<div class="border"></div></span>
+		<span id="lagend_p3" class="lg-p" style="display: none; width: 0px;">P3<div class="border"></div></span>
+		<span id="lagend_p4" class="lg-p" style="display: none; width: 0px;">P4<div class="border"></div></span>
+		<span id="lagend_p5" class="lg-p" style="display: none; width: 0px;">P5<div class="border"></div></span>
+		<span id="lagend_p6" class="lg-p" style="display: none; width: 0px;">P6<div class="border"></div></span>
+		<span id="lagend_p7" class="lg-p" style="display: none; width: 0px;">P7<div class="border"></div></span>
+		<span id="lagend_p8" class="lg-p" style="display: none; width: 0px;">P8<div class="border"></div></span>
+		<span id="lagend_p9" class="lg-p" style="display: none; width: 0px;">P9<div class="border"></div></span>
+		<span id="lagend_p10" class="lg-p" style="display: none; width: 0px;">P10<div class="border"></div></span>
+		<span id="lagend_shank" class="lg-p" style="width: 593.054px;">Shank<div class="border"></div></span>
+	</div>
+	<svg style="margin:1em 0" viewBox="-1 -1 122 24" stroke="black" stroke-width="0.1171875" id="technical-drawing">
+		<defs>
+			<linearGradient id="rainbow" gradientTransform="rotate(60)">
+				<stop offset="0%" style="stop-color:yellow;stop-opacity:0.5"></stop>
+				<stop offset="20%" style="stop-color:green;stop-opacity:0.5"></stop>
+				<stop offset="50%" style="stop-color:green;stop-opacity:0.5"></stop>
+				<stop offset="70%" style="stop-color:#2C87B7;stop-opacity:0.5"></stop>
+				<stop offset="85%" style="stop-color:#494EA8;stop-opacity:0.5"></stop>
+				<stop offset="100%" style="stop-color:#F93A34;stop-opacity:0.5"></stop>
+			</linearGradient>
+			<pattern id="cutters-26" patternUnits="userSpaceOnUse" width="52.9" height="11.785714285714286" patternTransform="rotate(060)">
+				<line x1="0" x2="52.9" y1="1" y2="1" stroke="black" stroke-opacity=".3" stroke-width="0.5"></line>
+				<line id="roughing" x1="0" x2="52.9" y1="1" y2="1" stroke="black" stroke-width="0.5" stroke-dasharray="none"></line>
+				<line id="cut_dir" x1="0" x2="52.9" y1="0.5" y2="0.5" stroke="black" stroke-opacity=".3" stroke-width="0.5"></line>
+				<!---->
+				<line x1="0" y1="0" x2="-1" y2="-1" stroke="black"></line>
+			</pattern>
+		</defs>
+
+		<g style="fill: transparent;">
+			<polyline id="rod" points="30 3.5, 30.001037143812496 0, 93 0, 93.9 0, 95.7 0, 95.7 0, 119.4375 0 , 120 0.84375, 120 21.15625, 119.4375 22, 30.001037143812496 22, 30 18.5">
+			</polyline>
+			<polyline id="brk" points="119.4375 0, 119.4375 22"></polyline>
+			<path id="kol" style="display: none;" d="M 33 9 l 85 0 M 33 13 l 85 0"></path>
+		</g>
+		<g>
+			<g id="step1">
+				<path id="coj1" class="bits" d="M 0 6 A 0 0 0 0 0 0 6 L 0 6 0 16 A 0 0 0 0 0 0 16 Z"></path>
+				<path style="fill:url('#cutters-26')" id="noj1" d="M 0 6 A 0 0 0 0 0 0 6 L 0 6 0 16 A 0 0 0 0 0 0 16 Z"></path>
+				<path style="fill:transparent" id="stp1" class="bits" d="M 0 6 L 30 3.5 l 0 15 L 0 16 Z"></path>
+				<path style="fill:url('#cutters-26')" id="cot1" d="M 0 6 L 30 3.5 l 0 15 L 0 16 Z"></path>
+			</g>
+			<g id="step2" style="display: none;">
+				<path style="fill:transparent" id="coj2" class="bits" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"/>
+				<path style="fill:url('#cutters-26')" id="noj2" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"></path>
+				<path style="fill:transparent" id="stp2" class="bits" d="M 30 9.5 L 30 9.5 L 30 12.5 L 30 12.5 Z">
+				</path>
+				<path style="fill:url('#cutters-26')" id="cot2" d="M 30 9.5 L 30 9.5 L 30 12.5 L 30 12.5 Z"></path>
+			</g>
+			<g id="step3" style="display: none;">
+				<path style="fill:transparent" id="coj3" class="bits" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z">
+				</path>
+				<path style="fill:url('#cutters-26')" id="noj3" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"></path>
+				<path style="fill:transparent" id="stp3" class="bits" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+				<path style="fill:url('#cutters-26')" id="cot3" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+			</g>
+			<g id="step4" style="display: none;">
+				<path style="fill:transparent" id="coj4" class="bits" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"/>
+				<path style="fill:url('#cutters-26')" id="noj4" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"></path>
+				<path style="fill:transparent" id="stp4" class="bits" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+				<path style="fill:url('#cutters-26')" id="cot4" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+			</g>
+			<g id="step5" style="display: none;">
+				<path style="fill:transparent" id="coj5" class="bits" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"/>
+				<path style="fill:url('#cutters-26')" id="noj5" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"></path>
+				<path style="fill:transparent" id="stp5" class="bits" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+				<path style="fill:url('#cutters-26')" id="cot5" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+			</g>
+			<g id="step6" style="display: none;">
+				<path id="coj6" style="fill: transparent" class="bits" d="M 0 6 A 0 0 0 0 0 0 6 L 0 6 0 16 A 0 0 0 0 0 0 16 Z"></path>
+				<path style="fill:transparent" id="stp6" class="bits" d="M 0 6 L 30 3.5 l 0 15 L 0 16 Z"></path>
+				<path style="fill:url('#cutters-26')" id="cot6" d="M 0 6 L 30 3.5 l 0 15 L 0 16 Z"></path>
+				<path style="fill:url('#cutters-26')" id="noj6" d="M 0 6 A 0 0 0 0 0 0 6 L 0 6 0 16 A 0 0 0 0 0 0 16 Z">
+				</path>
+			</g>
+			<g id="step7" style="display: none;">
+				<path style="fill:transparent" id="coj7" class="bits" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"/>
+				<path style="fill:url('#cutters-26')" id="noj7" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"></path>
+				<path style="fill:transparent" id="stp7" class="bits" d="M 30 9.5 L 30 9.5 L 30 12.5 L 30 12.5 Z">
+				</path>
+				<path style="fill:url('#cutters-26')" id="cot7" d="M 30 9.5 L 30 9.5 L 30 12.5 L 30 12.5 Z"></path>
+			</g>
+			<g id="step8" style="display: none;">
+				<path style="fill:transparent" id="coj8" class="bits" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"/>
+				<path style="fill:url('#cutters-26')" id="noj8" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"></path>
+				<path style="fill:transparent" id="stp8" class="bits" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+				<path style="fill:url('#cutters-26')" id="cot8" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+			</g>
+			<g id="step9" style="display: none;">
+				<path style="fill:transparent" id="coj9" class="bits" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"/>
+				<path style="fill:url('#cutters-26')" id="noj9" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"></path>
+				<path style="fill:transparent" id="stp9" class="bits" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+				<path style="fill:url('#cutters-26')" id="cot9" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+			</g>
+			<g id="step10" style="display: none;">
+				<path style="fill:transparent" id="coj10" class="bits" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"/>
+				<path style="fill:url('#cutters-26')" id="noj10" d="M 30 3.5 c 0 0 0 0 0 6 l 0 3 c 0 6 0 6 0 6 Z"></path>
+				<path style="fill:transparent" id="stp10" class="bits" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+				<path style="fill:url('#cutters-26')" id="cot10" d="M 30 9.5 l 0 0 l 0 3 l 0 0 Z"></path>
+			</g>
+		</g>
+		<g id="rotation-axis"><line x1="0" x2="120" y1="11" y2="11" stroke="#AAAAAA" stroke-dasharray="1.5,0.75"></line></g>
+		<circle cx="50" cy="50" r=".3" stroke="black" stroke-width=".1" fill="red" id="cr1"></circle>
+		<circle cx="50" cy="50" r=".3" stroke="black" stroke-width=".1" fill="green" id="cr2"></circle>
+	</svg>
+	<img src="https://configurator.cfe.guitaa.com/configurator/imgs/logo.png" width="150px" id="logo" style="position: absolute;right: 2%;" alt="encore logo">
+
+	<b>legend: </b><span><b>L</b> = Length, <b>D<i>n</i></b> = Dia Cutting, <b>D<i>n</i>b</b> = Diameter Base, <b>R</b> = Radius,  <b>F</b> = Per Side Angle</span>
+	<div id="controls">
+		<div class="bigflex">
+			<div class="flex">
+				<div id="sbank" class="steps">
+					<span class="prof">Shank</span>
+					<label for="L"><span class="title">L</span>
+						<input type="number" oninput="chgL1(this);" name="Ln" id="Ln" max="320" min="38" value="90" step="0.001"><span
+							class="unit">mm</span>
+						<input type="range" name="L" id="L" onchange="chgL1(this);" max="320" min="38" aria-label="L1"
+							value="90" step="0.001">
+					</label>
+					<label for="D"><span class="title">D</span>
+						<input type="number" oninput="chgL1(this);" name="Dn" id="Dn" max="40" min="3" value="22" step="0.001"><span
+							class="unit">mm</span>
+						<input type="range" name="D" id="D" onchange="chgL1(this);" max="40" min="3" aria-label="D1"
+							value="22" step="0.001">
+					</label>
+					<label for="slop"><span class="title">slop</span>
+						<input type="number" oninput="chgL1(this);" name="slopn" id="slopn" max="90" min="5"
+							value="90"><span class="unit">∠</span>
+						<input type="range" name="slop" id="slop" onchange="chgL1(this)" max="90" min="5" aria-label="slop"
+							value="90">
+					</label>
+					<label id="weld" for="weld"><span class="title">Weld on:</span><br />
+						<label for="Wyes"><span>Yes</span>
+							<input type="radio" name="weld" id="Wyes" onclick="weld='2';chgL1(this);" />
+						</label>
+						<label for="Wnoo"><span>No</span>
+							<input type="radio" name="weld" id="Wnoo" onclick="weld='0';chgL1(this);" checked="true">
+						</label>
+						<br><br>
+					</label>
+					<label id="cool" for="cool"><span class="title">coolant duct:</span><br />
+						<label for="Kyes"><span>Yes</span>
+							<input type="radio" name="cool" id="Kyes" onclick="cool='initial';chgL1(this);" />
+						</label>
+						<label for="Knoo"><span>No</span>
+							<input type="radio" name="cool" id="Knoo" onclick="cool='none';chgL1(this);" checked="true">
+						</label>
+					</label>
+				</div>
+
+				<div id="step1" class="loopProfile steps">
+					<span class="prof">Profile 1</span>
+					<label for="L1"><span class="title">L1</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L1n" id="L1n" max="200" min="0" value="30"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L1" id="L1" onchange="chgL1(this);" max="200" min="0" aria-label="L2"
+							value="30">
+					</label>
+					<label for="D1"><span class="title">D1</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D1');" name="D1n" id="D1n" max="40" min="3" value="10"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D1" id="D1" onchange="d1Chg(this,'D1');" max="40" min="3" aria-label="D2"
+							value="10">
+					</label>
+					<label class="dnb" for="D1b"><span class="title">D1b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D1bn" id="D1bn" max="40" min="3" value="15"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D1b" id="D1b" onchange="chgL1(this);" max="40" min="3" aria-label="D2b"
+							value="15">
+					</label>
+					<label for="arc1"><span class="title">r1</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arcn" id="arc1n" max="180" min="0" value="0"><span
+							class="unit">mm</span>
+							<div class="switch-wrapper" style="text-align: center;">
+								<label class="switch">
+									<input type="checkbox" onclick="chgL1(this);" id="lens1">
+									<span class="slider round"></span>
+								</label>
+							</div>
+						<input step="0.001" type="range" name="arc" id="arc1"
+							onchange="document.querySelector('#ang1').value=90;noj1=this.name;chgL1(this);" max="180" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang1"><span class="title">f1</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="angn" id="ang1n" max="180" min="1"
+							value="90"><span class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang1"
+							onchange="document.querySelector('#arc1').value=0;noj1=this.name;chgL1(this);" max="180" min="1"
+							aria-label="r" value="90">
+
+					</label>
+				</div>
+
+				<div id="step2" class="loopProfile steps">
+					<span class="prof">Profile 2</span>
+					<label for="L2"><span class="title">L2</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L2" id="L2n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L2" id="L2" onchange="chgL1(this);" max="200" min="0" aria-label="L2"
+							value="0">
+					</label>
+					<label for="D2"><span class="title">D2</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D2');" name="D2" id="D2n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D2" id="D2" onchange="d1Chg(this,'D2');" max="40" min="3" aria-label="D2"
+							value="0">
+					</label>
+					<label class="dnb" for="D2b"><span class="title">D2b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D2b" id="D2bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D2b" id="D2b" onchange="chgL1(this);" max="40" min="3" aria-label="D2b"
+							value="0">
+					</label>
+					<label for="arc2"><span class="title">r2</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arc" id="arc2n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+						<div class="switch-wrapper" style="text-align: center;">
+							<label class="switch">
+								<input type="checkbox" onclick="chgL1(this);" id="lens2">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<input step="0.001" type="range" name="arc" id="arc2"
+							onchange="document.querySelector('#ang2').value=90;noj2=this.name;chgL1(this);" max="5" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang2"><span class="title">f2</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="ang" id="ang2n" max="90" min="1" value="90"><span
+							class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang2"
+							onchange="document.querySelector('#arc2').value=0;noj2=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+
+				<div id="step3" class="loopProfile steps">
+					<span class="prof">Profile 3</span>
+					<label for="L3"><span class="title">L3</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L3n" id="L3n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L3" id="L3" onchange="chgL1(this);" max="200" min="0" aria-label="L2"
+							value="0">
+					</label>
+					<label for="D3"><span class="title">D3</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D3');" name="D3n" id="D3n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D3" id="D3" onchange="d1Chg(this,'D3');" max="40" min="3" aria-label="D2"
+							value="0">
+					</label>
+					<label class="dnb" for="D3b"><span class="title">D3b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D3bn" id="D3bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D3b" id="D3b" onchange="chgL1(this);" max="40" min="3" aria-label="D2b"
+							value="0">
+					</label>
+					<label for="arc3"><span class="title">r3</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arcn" id="arc3n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+						<div class="switch-wrapper" style="text-align: center;">
+							<label class="switch">
+								<input type="checkbox" onclick="chgL1(this);" id="lens3">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<input step="0.001" type="range" name="arc" id="arc3"
+							onchange="document.querySelector('#ang3').value=90;noj3=this.name;chgL1(this);" max="15" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang3"><span class="title">f3</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="angn" id="ang3n" max="90" min="1"
+							value="90"><span class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang3"
+							onchange="document.querySelector('#arc3').value=0;noj3=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+
+				<div id="step4" class="loopProfile steps">
+					<span class="prof">Profile 4</span>
+					<label for="L4"><span class="title">L4</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L4n" id="L4n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L4" id="L4" onchange="chgL1(this);" max="200" min="0" aria-label="L2"
+							value="0">
+					</label>
+					<label for="D4"><span class="title">D4</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D4');" name="D4n" id="D4n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D4" id="D4" onchange="d1Chg(this,'D4');" max="40" min="3" aria-label="D2"
+							value="0">
+					</label>
+					<label class="dnb" for="D4b"><span class="title">D4b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D4bn" id="D4bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D4b" id="D4b" onchange="chgL1(this);" max="40" min="3" aria-label="D2b"
+							value="0">
+					</label>
+					<label for="arc4"><span class="title">r4</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arc4n" id="arc4n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+						<div class="switch-wrapper" style="text-align: center;">
+							<label class="switch">
+								<input type="checkbox" onclick="chgL1(this);" id="lens4">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<input step="0.001" type="range" name="arc" id="arc4"
+							onchange="document.querySelector('#ang4').value=90;noj4=this.name;chgL1(this);" max="5" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang4"><span class="title">f4</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="ang4n" id="ang4n" max="90" min="1"
+							value="90"><span class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang4"
+							onchange="document.querySelector('#arc4').value=0;noj4=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+
+				<div id="step5" class="loopProfile steps">
+					<span class="prof">Profile 5</span>
+					<label for="L5"><span class="title">L5</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L5n" id="L5n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L5" id="L5" onchange="chgL1(this);" max="200" min="0" aria-label="L2"
+							value="0">
+					</label>
+					<label for="D5"><span class="title">D5</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D5');" name="D5n" id="D5n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D5" id="D5" onchange="d1Chg(this,'D5');" max="40" min="3" aria-label="D2"
+							value="0">
+					</label>
+					<label class="dnb" for="D5b"><span class="title">D5b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D5bn" id="D5bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D5b" id="D5b" onchange="chgL1(this);" max="40" min="3" aria-label="D2b"
+							value="0">
+					</label>
+					<label for="arc5"><span class="title">r5</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arc5n" id="arc5n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+						<div class="switch-wrapper" style="text-align: center;">
+							<label class="switch">
+								<input type="checkbox" onclick="chgL1(this);" id="lens5">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<input step="0.001" type="range" name="arc" id="arc5"
+							onchange="document.querySelector('#ang5').value=90;noj5=this.name;chgL1(this);" max="5" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang5"><span class="title">f5</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="ang5n" id="ang5n" max="90" min="1"
+							value="90"><span class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang5"
+							onchange="document.querySelector('#arc5').value=0;noj5=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+
+				<div id="step6" class="loopProfile steps">
+					<span class="prof">Profile 6</span>
+					<label for="L6"><span class="title">L6</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L6n" id="L6n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L6" id="L6" onchange="chgL1(this);" max="200" min="0" aria-label="L6"
+							value="0">
+					</label>
+					<label for="D6"><span class="title">D6</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D6');" name="D6n" id="D6n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D6" id="D6" onchange="d1Chg(this,'D6');" max="40" min="3" aria-label="D6"
+							value="0">
+					</label>
+					<label class="dnb" for="D6b"><span class="title">D6b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D6bn" id="D6bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D6b" id="D6b" onchange="chgL1(this);" max="40" min="3" aria-label="D6b"
+							value="0">
+					</label>
+					<label for="arc6"><span class="title">r6</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arcn" id="arc6n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+							<div class="switch-wrapper" style="text-align: center;">
+								<label class="switch">
+									<input type="checkbox" onclick="chgL1(this);" id="lens6">
+									<span class="slider round"></span>
+								</label>
+							</div>
+						<input step="0.001" type="range" name="arc" id="arc6"
+							onchange="document.querySelector('#ang6').value=90;noj6=this.name;chgL1(this);" max="5" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang6"><span class="title">f6</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="angn" id="ang6n" max="90" min="1"
+							value="90"><span class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang6"
+							onchange="document.querySelector('#arc6').value=0;noj6=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+
+				<div id="step7" class="loopProfile steps">
+					<span class="prof">Profile 7</span>
+					<label for="L7"><span class="title">L7</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L7" id="L7n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L7" id="L7" onchange="chgL1(this);" max="200" min="0" aria-label="L7"
+							value="0">
+					</label>
+					<label for="D7"><span class="title">D7</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D7');" name="D7" id="D7n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D7" id="D7" onchange="d1Chg(this,'D7');" max="40" min="3" aria-label="D7"
+							value="0">
+					</label>
+					<label class="dnb" for="D7b"><span class="title">D7b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D7b" id="D7bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D7b" id="D7b" onchange="chgL1(this);" max="40" min="3" aria-label="D7b"
+							value="0">
+					</label>
+					<label for="arc7"><span class="title">r7</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arc" id="arc7n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+						<div class="switch-wrapper" style="text-align: center;">
+							<label class="switch">
+								<input type="checkbox" onclick="chgL1(this);" id="lens7">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<input step="0.001" type="range" name="arc" id="arc7"
+							onchange="document.querySelector('#ang7').value=90;noj7=this.name;chgL1(this);" max="5" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang7"><span class="title">f7</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="ang" id="ang7n" max="90" min="1" value="90"><span
+							class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang7"
+							onchange="document.querySelector('#arc7').value=0;noj7=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+
+				<div id="step8" class="loopProfile steps">
+					<span class="prof">Profile 8</span>
+					<label for="L8"><span class="title">L8</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L8n" id="L8n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L8" id="L8" onchange="chgL1(this);" max="200" min="0" aria-label="L8"
+							value="0">
+					</label>
+					<label for="D8"><span class="title">D8</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D8');" name="D8n" id="D8n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D8" id="D8" onchange="d1Chg(this,'D8');" max="40" min="3" aria-label="D8"
+							value="0">
+					</label>
+					<label class="dnb" for="D8b"><span class="title">D8b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D8bn" id="D8bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D8b" id="D8b" onchange="chgL1(this);" max="40" min="3" aria-label="D8b"
+							value="0">
+					</label>
+					<label for="arc8"><span class="title">r8</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arcn" id="arc8n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+						<div class="switch-wrapper" style="text-align: center;">
+							<label class="switch">
+								<input type="checkbox" onclick="chgL1(this);" id="lens8">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<input step="0.001" type="range" name="arc" id="arc8"
+							onchange="document.querySelector('#ang8').value=90;noj8=this.name;chgL1(this);" max="15" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang8"><span class="title">f8</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="angn" id="ang8n" max="90" min="1"
+							value="90"><span class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang8"
+							onchange="document.querySelector('#arc8').value=0;noj8=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+
+				<div id="step9" class="loopProfile steps">
+					<span class="prof">Profile 9</span>
+					<label for="L9"><span class="title">L9</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L9n" id="L9n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L9" id="L9" onchange="chgL1(this);" max="200" min="0" aria-label="L9"
+							value="0">
+					</label>
+					<label for="D9"><span class="title">D9</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D9');" name="D9n" id="D9n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D9" id="D9" onchange="d1Chg(this,'D9');" max="40" min="3" aria-label="D9"
+							value="0">
+					</label>
+					<label class="dnb" for="D9b"><span class="title">D9b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D9bn" id="D9bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D9b" id="D9b" onchange="chgL1(this);" max="40" min="3" aria-label="D9b"
+							value="0">
+					</label>
+					<label for="arc9"><span class="title">r9</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arc9n" id="arc9n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+						<div class="switch-wrapper" style="text-align: center;">
+							<label class="switch">
+								<input type="checkbox" onclick="chgL1(this);" id="lens9">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<input step="0.001" type="range" name="arc" id="arc9"
+							onchange="document.querySelector('#ang9').value=90;noj9=this.name;chgL1(this);" max="5" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang9"><span class="title">f9</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="ang9n" id="ang9n" max="90" min="1"
+							value="90"><span class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang9"
+							onchange="document.querySelector('#arc9').value=0;noj9=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+
+				<div id="step10" class="loopProfile steps">
+					<span class="prof">Profile 10</span>
+					<label for="L10"><span class="title">L10</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="L10n" id="L10n" max="200" min="0" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="L10" id="L10" onchange="chgL1(this);" max="200" min="0" aria-label="L10"
+							value="0">
+					</label>
+					<label for="D10"><span class="title">D10</span>
+						<input step="0.001" type="number" oninput="d1Chg(this,'D10');" name="D10n" id="D10n" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D10" id="D10" onchange="d1Chg(this,'D10');" max="40" min="3" aria-label="D10"
+							value="0">
+					</label>
+					<label class="dnb" for="D10b"><span class="title">D10b</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="D10bn" id="D10bn" max="40" min="3" value="0"><span
+							class="unit">mm</span>
+						<input step="0.001" type="range" name="D10b" id="D10b" onchange="chgL1(this);" max="40" min="3" aria-label="D10b"
+							value="0">
+					</label>
+					<label for="arc10"><span class="title">r10</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="arc10n" id="arc10n" max="5" min="0" value="0"><span
+							class="unit">mm</span>
+						<div class="switch-wrapper" style="text-align:center;">
+							<label class="switch">
+								<input type="checkbox" onclick="chgL1(this);" id="lens10">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<input step="0.001" type="range" name="arc" id="arc10"
+							onchange="document.querySelector('#ang10').value=90;noj10=this.name;chgL1(this);" max="5" min="0"
+							aria-label="r" value="0">
+					</label>
+					<label for="ang10"><span class="title">f10</span>
+						<input step="0.001" type="number" oninput="chgL1(this);" name="ang10n" id="ang10n" max="90" min="1"
+							value="90"><span class="unit">∠</span>
+						<input step="0.001" type="range" name="ang" id="ang10"
+							onchange="document.querySelector('#arc10').value=0;noj10=this.name;chgL1(this);" max="90" min="1"
+							aria-label="r" value="90">
+					</label>
+				</div>
+			</div>
+			<div class="flexcol">
+				<button onclick="addprofile();" class="probutton addProfile">
+					<span>Add <div class="whitess">Profile +</div></span>
+					<span class="count">3 profiles</span>
+				</button>
+				<button onclick="delprofile();" disabled="true" class="probutton delProfile">Del <div class="whitess">Profile -</div></button>
+			</div>
+		</div>
+		<div id="general" class="steps">
+			<span class="prof" style="grid-area: 1/1/2/4;">General</span>
+			<label for="z"><span class="title">Z (No. of Flutes) </span>
+				<input type="number" onchange="chgL1(this);" name="cutn" id="cutn" max="14" min="1" value="1"
+					style="width: 4ch;"><span class="unit">#</span><br />
+				<input type="range" name="z" id="cut" onchange="chgL1(this);" max="14" min="1" aria-label="z" value="1">
+			</label>
+			<label for="pch"><span class="title">Helical Pitch </span>
+				<input type="number" onchange="chgL1(this);" name="pchn" id="pchn" max="60" min="5" value="60"
+					style="width: 4ch;"><span class="unit">∠</span><br />
+				<input type="range" name="pch" id="pch" onchange="chgL1(this);" max="60" min="5" aria-label="pch"
+					value="60">
+			</label>
+			<label id="coat" for="coat"><span class="title">Coating:</span><br />
+				<select style="width: auto;" name="coat" id="coat" onchange="coat=this.value;chgL1(this);">
+					<option value="transparent">None</option>
+					<option value="#00000091">Black</option>
+					<option value="gold">Gold</option>
+					<option value="url('#rainbow')">Rainbow</option>
+				</select>
+			</label>
+			<label for="cdir"><span class="title">Cutting Direction:</span><br />
+				<label for="cdirL"><span>Left</span>
+					<input type="radio" name="cdir" id="cdirL"
+						onclick="document.querySelector('#cut_dir').y2.baseVal.value=1.5;document.querySelector('#cut_dir').y1.baseVal.value=1.5;"
+						value="left">
+				</label>
+				<label for="cdirR"><span>Right</span>
+					<input type="radio" name="cdir" id="cdirR"
+						onclick="document.querySelector('#cut_dir').y2.baseVal.value=0.5;document.querySelector('#cut_dir').y1.baseVal.value=0.5;"
+						value="right" checked>
+				</label>
+			</label>
+			<label id="hdir" for="hdir"><span class="title">Helix Direction:</span><br />
+				<label for="hdirL"><span>Left</span>
+					<input type="radio" name="hdir" id="hdirL" onclick="hdir='-';chgL1(this);" />
+				</label>
+				<label for="hdirR"><span>Right</span>
+					<input type="radio" name="hdir" id="hdirR" onclick="hdir='';chgL1(this);" checked="true">
+				</label>
+			</label>
+			<label id="rogh" for="rogh"><span class="title">Roughing:</span><br />
+				<label for="Ryes"><span>Yes</span>
+					<input type="radio" name="rogh" id="Ryes" onclick="rogh='2';chgL1(this);" />
+				</label>
+				<label for="Rnoo"><span>No</span>
+					<input type="radio" name="rogh" id="Rnoo" onclick="rogh='none';chgL1(this);" checked="true">
+				</label>
+			</label>
+			<label for="din">
+				<div>
+					<span>Machining materials</span>
+					<input class="fullwidth" name="din" id="din" type="text" placeholder="Ex. 1.4301 [X5CrNi18-10], 1.0037 [ST37]" required>
+				</div>
+			</label>
+			<label for="hardnesscoff">
+				<div>
+					<span>Material Hardness</span>
+					<input class="fullwidth" name="hardness" id="hardnesscoff" type="text" placeholder="" required>
+				</div>
+			</label>
+		</div>
+	</div>
+
+	<div style="margin:4em 0;">
+		<div class="feature_row">
+			<span>Cutting strategy</span>
+			<div class="features" id="fea_1">
+				<div title=" Extended Trochoidal Cutting"><img name="ETC" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/ETC.png"
+						alt=""></div>
+				<div title=" High Speed Cutting"><img name="HSC" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/HSC.png" alt=""></div>
+				<div title="High Performance Cutting"><img name="HPC" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/HPC.png" alt="">
+				</div>
+				<div title="Multi Task Cutting"><img name="MTC" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/MTC.png" alt=""></div>
+				<div title="Universal machining"><img name="UNI" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/UNI.png" alt=""></div>
+			</div>
+		</div>
+		<div class="feature_row">
+			<span>Application</span>
+			<div class="features" id="fea_2">
+				<div title="Engraving"><img name="Engraving" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/App1.png" alt=""></div>
+				<div title="Multipass Milling"><img name="Multipass Milling" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/App2.png"
+						alt=""></div>
+				<div title="Full Slot"><img name="Full Slot" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/App3.png" alt=""></div>
+				<div title="Trimming"><img name="Trimming" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/App4.png" alt=""></div>
+				<div title="Deburring"><img name="Deburring" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/App5.png" alt=""></div>
+				<div title="DRM"><img name="DRM" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/DRM.png" alt=""></div>
+			</div>
+		</div>
+		<div class="feature_row">
+			<span>Features</span>
+			<div class="features" id="fea_3">
+				<div title="Unequal Tooth Pitch"><img name="Unequal Tooth Pitch" style="width: 100%;"
+						src="https://configurator.cfe.guitaa.com/configurator/imgs/features1.png" alt=""></div>
+				<div title="Coolant Duct System"><img name="Coolant Duct System" id="fcool" set="Kyes Knoo"
+						style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/features2.png" alt=""></div>
+				<div title="Chip Breaking"><img name="Chip Breaking" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/features3.png"
+						alt=""></div>
+				<div title="Serrated Edge"><img name="Serrated Edge" id="frogh" set="Ryes Rnoo" style="width: 100%;"
+						src="https://configurator.cfe.guitaa.com/configurator/imgs/features4.png" alt=""></div>
+			</div>
+		</div>
+		<div class="feature_row">
+			<span>Cooling</span>
+			<div class="features" id="fea_4">
+				<div title="Dry"><img name="Dry" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/cool1.png" alt=""></div>
+				<div title="Air-Cooled"><img name="Air-Cooled" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/cool2.png" alt=""></div>
+				<div title="Water Min"><img name="Water Min" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/cool3.png" alt=""></div>
+				<div title="Water Max"><img name="Water Max" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/cool4.png" alt=""></div>
+				<div title="Oil"><img name="Oil" style="width: 100%;" src="https://configurator.cfe.guitaa.com/configurator/imgs/cool5.png" alt=""></div>
+			</div>
+		</div>
+	</div>
+
+	<form id="myForm">
+		<div class="form">
+			<div>
+				<label>Company</label>
+				<input name="comapny" id="comapny" type="text" placeholder="company name">
+			</div>
+			<div>
+				<label for="name">Name</label>
+				<input name="name" id="name" type="text" placeholder="your name" required>
+			</div>
+			<div>
+				<label for="mail">E-mail</label>
+				<input name="mail" id="mail" type="email" placeholder="xyz@server.com" required>
+			</div>
+			<div>
+				<label for="phone">Phone</label>
+				<input name="phone" id="phone" type="tel" placeholder="1234567890" required>
+			</div>
+			<div>
+				<label for="quantity">Desired quantity</label>
+				<input name="quantity" id="quantity" type="text" placeholder="Ex. 100" required>
+			</div>
+			<div id="comments">
+				<label for="comment">Comments</label>
+				<textarea name="comment" id="comment" style="resize: vertical;width: 90%;height: 60%;"></textarea>
+			</div>
+			<div>
+				<label for="region">Region</label>
+				<input name="region" id="region" type="text" placeholder="Dubai, UAE" required>
+			</div>
+			<div>
+				<label for="attach">Attachment Link</label>
+				<input name="attach" id="attach" type="url">
+			</div>
+			<div id="validation">
+				<div>
+					<input name="check" id="check" type="checkbox" style="width: auto;" value=""
+						onclick="this.value=this.checked?'123':'';" required>
+					<label for="check" style="width: initial;">By submitting this form I agree with the data protection
+						declaration.</label>
+				</div>
+				<div style="flex-grow: 1;text-align: center;">
+					<div class="butts" id="butts"
+						onclick="document.querySelector('#myForm').reportValidity()?submit(this): true">Submit</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<div class="fixedpopup open" id="popBox">
+		<div class="main">
+			<!-- <span class="close" onclick="document.querySelector('#popBox').classList.remove('open');">X</span> -->
+			<div class="content">
+					<form class="popform" action="#" onsubmit="return false;" id="popform" method="post">
+						<div class="cols">
+							<fieldset>
+								<legend>Name</legend>
+								<input type="text" name="" id="popname" placeholder="Your Name" required>
+							</fieldset>
+							<fieldset>
+								<legend>Company Name</legend>
+								<input type="text" name="" id="popcname" placeholder="Company Name" required>
+							</fieldset>
+							<fieldset>
+								<legend>Email</legend>
+								<input type="email" name="" id="popmail" placeholder="xyz@example.com" required>
+							</fieldset>
+							<fieldset>
+								<legend>Region</legend>
+								<input type="text" name="" id="popplace" placeholder="Dubai, UAE" required>
+							</fieldset>
+						</div>
+						<br>
+						<center><button onclick="popsubmit();">Submit</button></center>
+					</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.querySelectorAll('.features>div>img').forEach((e)=>{
+			e.addEventListener('click', (e)=>{
+				e.srcElement.classList.toggle('highlight');
+				document.querySelector('#'+e.srcElement.getAttribute('set')?.split(" ")[+(!e.srcElement.classList.contains('highlight'))])?.click();
+			})
+		})
+		res();
+		function res(){
+			document.querySelector("#logo").style.top=(document.querySelector('#technical-drawing').getBoundingClientRect().bottom-(document.querySelector('#technical-drawing').getBoundingClientRect().height/2)+window.scrollY-document.querySelector('#logo').getBoundingClientRect().height+3)+'px';
+			document.querySelector("#logo").style.right=((document.querySelector('#rod').getBoundingClientRect().width-document.querySelector('#logo').getBoundingClientRect().width)/2)+'px';
+			setlegend();
+		}
+		var L_s,D_s,noj1=noj2=noj3=noj4=noj5=noj6=noj7=noj8=noj9=noj10='arc',pch_val,cut_num,slopy=cdir=hdir=weld=0,coat='transparent',rogh=cool='none',undo={},col_w=2;
+
+	function chgL1(elc) {
+		if(elc.type == "range"){document.querySelector('#'+elc.id+'n').value=elc.value;document.querySelector('#'+elc.id+'n').max=elc.max;document.querySelector('#'+elc.id+'n').min=elc.min}
+		else if(elc.type == "number"){document.querySelector('#'+elc.id.slice(0, elc.id.length-1)).value=elc.value}
+
+		// setting maximum diameter equal to shaft diameter
+
+		 // document.querySelector('#arc1n').value=document.querySelector('#arc1').value;
+		 // document.querySelector('#ang1n').value=document.querySelector('#ang1').value;
+		 // document.querySelector('#arc2n').value=document.querySelector('#arc2').value;
+		 // document.querySelector('#ang2n').value=document.querySelector('#ang2').value;
+		 // document.querySelector('#arc3n').value=document.querySelector('#arc3').value;
+		 // document.querySelector('#ang3n').value=document.querySelector('#ang3').value;
+		 // document.querySelector('#arc4n').value=document.querySelector('#arc4').value;
+		 // document.querySelector('#ang4n').value=document.querySelector('#ang4').value;
+		 for(let i=0;i<document.querySelectorAll('.loopProfile').length;i++){
+			 document.querySelector('#arc'+(i+1)+'n').value=document.querySelector('#arc'+(i+1)).value;
+			 document.querySelector('#ang'+(i+1)+'n').value=document.querySelector('#ang'+(i+1)).value;
+		 }
+
+		s1l = parseFloat(document.querySelector('#L1').value);
+		s1d2=s1d1 = parseFloat(document.querySelector('#D1').value);
+		s1d2 = parseFloat(document.querySelector('#D1b').value);
+		s1r = parseFloat(document.querySelector('#arc1').value);
+		s1f = parseFloat(document.querySelector('#ang1').value);
+		s1g = document.querySelector('#lens1').checked;
+		s1n = parseFloat(document.querySelector('#'+noj1+'1').value);
+
+		s2l = parseFloat(document.querySelector('#L2').value);
+		s2d2=s2d1 = parseFloat(document.querySelector('#D2').value);
+		s2d2 = parseFloat(document.querySelector('#D2b').value);
+		s2r = parseFloat(document.querySelector('#arc2').value);
+		s2f = parseFloat(document.querySelector('#ang2').value);
+		s2g = document.querySelector('#lens2').checked;
+		s2n = parseFloat(document.querySelector('#'+noj2+'2').value);
+
+		s3l = parseFloat(document.querySelector('#L3').value);
+		s3d2=s3d1 = parseFloat(document.querySelector('#D3').value);
+		s3d2 = parseFloat(document.querySelector('#D3b').value);
+		s3r = parseFloat(document.querySelector('#arc3').value);
+		s3f = parseFloat(document.querySelector('#ang3').value);
+		s3g = document.querySelector('#lens3').checked;
+		s3n = parseFloat(document.querySelector('#'+noj3+'3').value);
+
+		s4l = parseFloat(document.querySelector('#L4').value);
+		s4d2=s4d1 = parseFloat(document.querySelector('#D4').value);
+		s4d2 = parseFloat(document.querySelector('#D4b').value);
+		s4r = parseFloat(document.querySelector('#arc4').value);
+		s4f = parseFloat(document.querySelector('#ang4').value);
+		s4g = document.querySelector('#lens4').checked;
+		s4n = parseFloat(document.querySelector('#'+noj4+'4').value);
+
+		s5l = parseFloat(document.querySelector('#L5').value);
+		s5d2=s5d1 = parseFloat(document.querySelector('#D5').value);
+		s5d2 = parseFloat(document.querySelector('#D5b').value);
+		s5r = parseFloat(document.querySelector('#arc5').value);
+		s5f = parseFloat(document.querySelector('#ang5').value);
+		s5g = document.querySelector('#lens5').checked;
+		s5n = parseFloat(document.querySelector('#'+noj5+'5').value);
+
+		s6l = parseFloat(document.querySelector('#L6').value);
+		s6d2=s6d1 = parseFloat(document.querySelector('#D6').value);
+		s6d2 = parseFloat(document.querySelector('#D6b').value);
+		s6r = parseFloat(document.querySelector('#arc6').value);
+		s6f = parseFloat(document.querySelector('#ang6').value);
+		s6g = document.querySelector('#lens6').checked;
+		s6n = parseFloat(document.querySelector('#'+noj6+'6').value);
+
+		s7l = parseFloat(document.querySelector('#L7').value);
+		s7d2=s7d1 = parseFloat(document.querySelector('#D7').value);
+		s7d2 = parseFloat(document.querySelector('#D7b').value);
+		s7r = parseFloat(document.querySelector('#arc7').value);
+		s7f = parseFloat(document.querySelector('#ang7').value);
+		s7g = document.querySelector('#lens7').checked;
+		s7n = parseFloat(document.querySelector('#'+noj7+'7').value);
+
+		s8l = parseFloat(document.querySelector('#L8').value);
+		s8d2=s8d1 = parseFloat(document.querySelector('#D8').value);
+		s8d2 = parseFloat(document.querySelector('#D8b').value);
+		s8r = parseFloat(document.querySelector('#arc8').value);
+		s8f = parseFloat(document.querySelector('#ang8').value);
+		s8g = document.querySelector('#lens8').checked;
+		s8n = parseFloat(document.querySelector('#'+noj8+'8').value);
+
+		s9l = parseFloat(document.querySelector('#L9').value);
+		s9d2=s9d1 = parseFloat(document.querySelector('#D9').value);
+		s9d2 = parseFloat(document.querySelector('#D9b').value);
+		s9r = parseFloat(document.querySelector('#arc9').value);
+		s9f = parseFloat(document.querySelector('#ang9').value);
+		s9g = document.querySelector('#lens9').checked;
+		s9n = parseFloat(document.querySelector('#'+noj9+'9').value);
+
+		s10l = parseFloat(document.querySelector('#L10').value);
+		s10d2=s10d1 = parseFloat(document.querySelector('#D10').value);
+		s10d2 = parseFloat(document.querySelector('#D10b').value);
+		s10r = parseFloat(document.querySelector('#arc10').value);
+		s10f = parseFloat(document.querySelector('#ang10').value);
+		s10g = document.querySelector('#lens10').checked;
+		s10n = parseFloat(document.querySelector('#'+noj10+'10').value);
+
+		l_s = parseFloat(document.querySelector('#L').value);
+		l_m = parseFloat(document.querySelector('#L').max);
+		d_s = parseFloat(document.querySelector('#D').value);
+
+
+				pch_val = parseFloat(document.querySelector('#pch').value);
+				cut_num = parseFloat(document.querySelector('#cut').value);
+				cut_max = parseFloat(document.querySelector('#cut').max);
+
+				l_sum = (s1l+s2l+s3l+s4l+s5l+s6l+s7l+s8l+s9l+s10l+l_s);
+
+				 // bit nose
+				if(noj1 == 'arc'){
+					if(s1g){
+						szn = (Math.min(s1n, s1d1/2));
+						document.querySelector('#noj1').setAttribute('d','M '+szn+' '+(d_s-s1d1)/2+' A '+szn+' '+szn+' 0 0 1 0 '+(((d_s-s1d1)/2)+szn)+' L 0 '+(((d_s-s1d1)/2)+szn)+' 0 '+(((d_s+s1d1)/2)-szn)+' A '+szn+' '+szn+' 0 0 1 '+szn+' '+(d_s+s1d1)/2+' Z');
+						s1n = szn;
+					} else {
+						if(s1n<=(s1d1/2))
+						document.querySelector('#noj1').setAttribute('d','M '+s1n+' '+(d_s-s1d1)/2+' A '+s1n+' '+s1n+' 0 0 0 0 '+(((d_s-s1d1)/2)+s1n)+' L 0 '+(((d_s-s1d1)/2)+s1n)+' 0 '+(((d_s+s1d1)/2)-s1n)+' A '+s1n+' '+s1n+' 0 0 0 '+s1n+' '+(d_s+s1d1)/2+' Z');
+						else{
+							sxn = (Math.min(s1n, s1d1/2)) - (s1n/3);
+							document.querySelector('#noj1').setAttribute('d','M '+sxn+' '+(d_s-s1d1)/2+' A '+s1n+' '+s1n+' 0 0 0 '+sxn+' '+(((d_s+s1d1)/2))+' Z');
+							s1n = sxn;
+						}
+					}
+				}else if(noj1 == 'ang'){
+					s1n = ((  ((d_s/2)-((d_s-s1d1)/2))  /  (Math.tan((s1n)*0.01745))) + (0));
+					document.querySelector('#noj1').setAttribute('d','M  0 '+(d_s/2)+' L  '+s1n+' '+(d_s+s1d1)/2+'  V '+(d_s-s1d1)/2+'  Z');
+				}
+				//dashed x-axis, container dimensions
+				let d_max = (Math.max(d_s,s1d1,s1d2,s2d1,s2d2,s3d1,s3d2,s4d1,s4d2,s5d1,s5d2,s6d1,s6d2,s7d1,s7d2,s8d1,s8d2,s9d1,s9d2,s10d1,s10d2));
+				// let d_min = (Math.min(d_s,s1d1,s1d2,s2d1,s2d2,s3d1,s3d2,s4d1,s4d2,s5d1,s5d2));
+				// console.log(d_s-d_max);
+				slopy = (( ((d_s-lfdia(6))/2) / (Math.tan((parseInt(document.querySelector('#slop').value))*0.01745))) + (l_sum-l_s));
+
+				document.querySelector('#rotation-axis').innerHTML = '<line x1="0" x2="' +(l_sum)+ '" y1="' + ((d_s/2)) +'" y2="' + ((d_s/2)) + '" stroke="#AAAAAA" stroke-dasharray="' + ((l_sum) /l_m) * 4 + ',' + ((l_sum)/l_m) * 2 + '"></line>';
+				document.querySelector('#technical-drawing').setAttribute('viewBox', (s1n<0?s1n:-1)+' '+(d_s-d_max-1)/2+' ' +(l_sum+2+((s1n<0?0-s1n:0)))+ ' ' + (d_max+2));
+				document.querySelector('#technical-drawing').setAttribute("stroke-width", ((l_sum)/320) * 0.3125);
+				document.querySelector("#logo").style.top=(document.querySelector('#technical-drawing').getBoundingClientRect().height-document.querySelector('#logo').getBoundingClientRect().height-5)+'px';
+				document.querySelector('#coj1').setAttribute('d', document.querySelector('#noj1').getAttribute('d'));
+
+
+				for(var i=2;i<11;i++){
+						document.querySelector('#step'+i).style.display = (eval('s'+i+'l') == 0 ? 'none' : 'initial');
+						var sn = eval('s'+i+'n');
+						var sd = eval('s'+i+'d1');
+						var sg = eval('s'+i+'g');
+						if(eval('noj'+i) == 'arc'){//arc
+							if(sg){
+								if(lfdia(i) < sd){
+									document.querySelector('#noj'+i).setAttribute('d', 'M '+left(i)+' '+(d_s-(lfdia(i)))/2+' c '+(sn*0.1)+' '+0+' '+(sn*0.66)+' '+(sn*0.1)+' '+sn+' '+(lfdia(i)-sd)/2+' l 0 '+sd+' c '+(0-(sn*0.4))+' '+(((lfdia(i)-sd)/2)-(sn*0.1))+' '+(0-(sn*0.9))+' '+(((lfdia(i)-sd)/2))+' '+(0-sn)+' '+((lfdia(i)-sd))/2+' Z')
+								}else{
+									document.querySelector('#noj'+i).setAttribute('d', 'M '+left(i)+' '+(d_s-(lfdia(i)))/2+' c '+(sn*0.1)+' '+((lfdia(i)-sd)/2)+' '+(sn*0.66)+' '+((lfdia(i)-sd)/2)+' '+sn+' '+(lfdia(i)-sd)/2+' l 0 '+sd+' c '+(0-(sn*0.4))+' 0 '+(0-(sn*0.8))+' 0 '+(0-sn)+' '+((lfdia(i)-sd))/2+' Z')
+								}
+							}else{
+								if(lfdia(i) > sd){
+										document.querySelector('#noj'+i).setAttribute('d', 'M '+left(i)+' '+(d_s-(lfdia(i)))/2+' c '+(sn*0.1)+' '+0+' '+(sn*0.66)+' '+(sn*0.1)+' '+sn+' '+(lfdia(i)-sd)/2+' l 0 '+sd+' c '+(0-(sn*0.4))+' '+(((lfdia(i)-sd)/2)-(sn*0.1))+' '+(0-(sn*0.9))+' '+(((lfdia(i)-sd)/2))+' '+(0-sn)+' '+((lfdia(i)-sd))/2+' Z')
+								}else{
+										document.querySelector('#noj'+i).setAttribute('d', 'M '+left(i)+' '+(d_s-(lfdia(i)))/2+' c '+(sn*0.1)+' '+((lfdia(i)-sd)/2)+' '+(sn*0.66)+' '+((lfdia(i)-sd)/2)+' '+sn+' '+(lfdia(i)-sd)/2+' l 0 '+sd+' c '+(0-(sn*0.4))+' 0 '+(0-(sn*0.8))+' 0 '+(0-sn)+' '+((lfdia(i)-sd))/2+' Z')
+								}
+							}
+						}else if(eval('noj'+i) == 'ang'){//ang
+								if(sd<=lfdia(i)){
+									sn = ((  ( ((d_s-sd)/2) - ((d_s-(lfdia(i)))/2) )  /  (Math.tan((sn)*0.01745))) + (left(i)));
+								}
+								else {
+									sn = ((  ( ((d_s-(lfdia(i)))/2) - ((d_s-sd)/2) )  /  (Math.tan((sn)*0.01745))) + (left(i)));
+								}
+								if(i==2)s2n=sn-left(i);
+								else if(i==3)s3n=sn-left(i);
+								else if(i==4)s4n=sn-left(i);
+								else if(i==5)s5n=sn-left(i);
+								else if(i==6)s6n=sn-left(i);
+								else if(i==7)s7n=sn-left(i);
+								else if(i==8)s8n=sn-left(i);
+								else if(i==9)s9n=sn-left(i);
+								else if(i==10)s10n=sn-left(i);
+								// console.log(sn, eval('s'+i+'n'));
+								document.querySelector('#noj'+i).setAttribute('d','M '+left(i)+' '+(d_s-(lfdia(i)))/2+' L '+(sn)+' '+(d_s-sd)/2+' L '+(sn)+' '+(d_s+sd)/2+' L '+left(i)+' '+(d_s+(lfdia(i)))/2+' Z');
+						}
+						document.querySelector('#coj'+i).setAttribute('d', document.querySelector('#noj'+i).getAttribute('d'));
+				}
+
+				//steps and their fills
+				document.querySelector('#stp1').setAttribute('d', 'M '+s1n+' '+(d_s-s1d1)/2+' L '+(s1l)+' '+(d_s-s1d2)/2+' l 0 '+s1d2+' L '+s1n+' '+(d_s+s1d1)/2+' Z');
+			document.querySelector('#cot1').setAttribute('d', document.querySelector('#stp1').getAttribute('d'));
+				document.querySelector('#stp2').setAttribute('d', 'M '+(s2n+s1l)+' '+(d_s-s2d1)/2+' L '+(s1l+s2l)+' '+(d_s-s2d2)/2+' L '+(s1l+s2l)+' '+(d_s+s2d2)/2+' L '+(s2n+s1l)+' '+(d_s+s2d1)/2+' Z');
+			document.querySelector('#cot2').setAttribute('d', document.querySelector('#stp2').getAttribute('d'));
+				document.querySelector('#stp3').setAttribute('d', 'M '+(s3n+s1l+s2l)+' '+(d_s-s3d1)/2+' l '+(s3l-s3n)+' '+(s3d1-s3d2)/2+' l 0 '+s3d2+' l '+(s3n-s3l)+' '+(s3d1-s3d2)/2+' Z');
+			document.querySelector('#cot3').setAttribute('d', document.querySelector('#stp3').getAttribute('d'));
+				document.querySelector('#stp4').setAttribute('d', 'M '+(s4n+s1l+s2l+s3l)+' '+(d_s-s4d1)/2+' l '+(s4l-s4n)+' '+(s4d1-s4d2)/2+' l 0 '+s4d2+' l '+(s4n-s4l)+' '+(s4d1-s4d2)/2+' Z');
+			document.querySelector('#cot4').setAttribute('d', document.querySelector('#stp4').getAttribute('d'));
+				document.querySelector('#stp5').setAttribute('d', 'M '+(s5n+s1l+s2l+s3l+s4l)+' '+(d_s-s5d1)/2+' l '+(s5l-s5n)+' '+(s5d1-s5d2)/2+' l 0 '+s5d2+' l '+(s5n-s5l)+' '+(s5d1-s5d2)/2+' Z');
+			document.querySelector('#cot5').setAttribute('d', document.querySelector('#stp5').getAttribute('d'));
+				document.querySelector('#stp6').setAttribute('d', 'M '+(s6n+s5l+s1l+s2l+s3l+s4l)+' '+(d_s-s6d1)/2+' l '+(s6l-s6n)+' '+(s6d1-s6d2)/2+' l 0 '+s6d2+' l '+(s6n-s6l)+' '+(s6d1-s6d2)/2+' Z');
+			document.querySelector('#cot6').setAttribute('d', document.querySelector('#stp6').getAttribute('d'));
+				document.querySelector('#stp7').setAttribute('d', 'M '+(s7n+s6l+s5l+s1l+s2l+s3l+s4l)+' '+(d_s-s7d1)/2+' l '+(s7l-s7n)+' '+(s7d1-s7d2)/2+' l 0 '+s7d2+' l '+(s7n-s7l)+' '+(s7d1-s7d2)/2+' Z');
+			document.querySelector('#cot7').setAttribute('d', document.querySelector('#stp7').getAttribute('d'));
+				document.querySelector('#stp8').setAttribute('d', 'M '+(s8n+s7l+s6l+s5l+s1l+s2l+s3l+s4l)+' '+(d_s-s8d1)/2+' l '+(s8l-s8n)+' '+(s8d1-s8d2)/2+' l 0 '+s8d2+' l '+(s8n-s8l)+' '+(s8d1-s8d2)/2+' Z');
+			document.querySelector('#cot8').setAttribute('d', document.querySelector('#stp8').getAttribute('d'));
+				document.querySelector('#stp9').setAttribute('d', 'M '+(s9n+s8l+s7l+s6l+s5l+s1l+s2l+s3l+s4l)+' '+(d_s-s9d1)/2+' l '+(s9l-s9n)+' '+(s9d1-s9d2)/2+' l 0 '+s9d2+' l '+(s9n-s9l)+' '+(s9d1-s9d2)/2+' Z');
+			document.querySelector('#cot9').setAttribute('d', document.querySelector('#stp9').getAttribute('d'));
+				document.querySelector('#stp10').setAttribute('d', 'M '+(s10n+s9l+s8l+s7l+s6l+s5l+s1l+s2l+s3l+s4l)+' '+(d_s-s10d1)/2+' l '+(s10l-s10n)+' '+(s10d1-s10d2)/2+' l 0 '+s10d2+' l '+(s10n-s10l)+' '+(s10d1-s10d2)/2+' Z');
+			document.querySelector('#cot10').setAttribute('d', document.querySelector('#stp10').getAttribute('d'));
+				//shank
+				// slopy = slopy > (l_sum-(l_s*0.33)) ? (l_sum-(l_s*0.33))-2 : slopy;
+				// document.querySelector('#slop').value = (180/Math.PI)*(Math.atan((((d_s-lfdia(6))/2)) / (slopy - (l_sum-l_s))));
+				document.querySelector('#rod').setAttribute('points', (l_sum-l_s)+' '+(d_s-lfdia(i))/2+', ' +slopy+' 0, '+(l_sum-(l_s*0.30))+' 0, '+(l_sum-(l_s*0.29))+' '+weld+', '+(l_sum-(l_s*0.27))+' '+weld+', '+(l_sum-(l_s*0.27))+' 0, '+(l_sum-((l_s/l_m)*2))+' 0 , '+l_sum+' '+(l_s/l_m)*3+', '+l_sum+' '+(d_s-((l_s/l_m)*3))+', '+(l_sum-((l_s/l_m)*2))+' '+d_s+', '+slopy+' '+d_s+', '+(l_sum-l_s)+' '+(d_s+lfdia(i))/2);
+			document.querySelector('#brk').setAttribute('points', (l_sum-(l_s/l_m)*2)+' 0, '+(l_sum-(l_s/l_m)*2)+' '+d_s);
+				//coolant
+				document.querySelector('#kol').style.display = cool;
+				document.querySelector('#fcool').classList=cool=='none'? '': 'highlight';
+				document.querySelector('#kol').setAttribute('d', 'M '+(l_sum-l_s+3)+' '+((d_s/2)-col_w)+' l '+(l_s-5)+' 0 M '+(l_sum-l_s+3)+' '+((d_s/2)+col_w)+' l '+(l_s-5)+' 0')
+				//helix direction
+				document.querySelector('#cutters-26').setAttribute("patternTransform","rotate("+hdir+""+pch_val+")");
+				// z
+				document.querySelector('#cutters-26').setAttribute('height', 10*(1-(cut_num/cut_max))+2.5);
+				// coating
+				document.querySelectorAll('.bits').forEach((el)=>{
+					el.style.fill=coat;
+					if(el.id=='coj1' && s1n<0){
+						el.style.fill='white';
+					}
+				});
+				//roughing
+				document.querySelector('#roughing').setAttribute('stroke-dasharray', rogh);
+				document.querySelector('#frogh').classList=rogh=='none'? '': 'highlight';
+
+				res();
+			}
+
+		function setlegend() {
+				document.querySelector('.legend-graph').style.marginLeft=(document.querySelector('#step1').getBoundingClientRect().left-10)+'px';
+				document.querySelector('#lagend_noj').style.display=document.querySelector('#coj1').getBoundingClientRect().width<=0?'none':'inline-block';
+				document.querySelector('#lagend_noj').style.width=document.querySelector('#coj1').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p1').style.display=document.querySelector('#stp1').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p1').style.width=document.querySelector('#stp1').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p2').style.display=document.querySelector('#step2').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p2').style.width=document.querySelector('#step2').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p3').style.display=document.querySelector('#step3').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p3').style.width=document.querySelector('#step3').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p4').style.display=document.querySelector('#step4').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p4').style.width=document.querySelector('#step4').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p5').style.display=document.querySelector('#step5').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p5').style.width=document.querySelector('#step5').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p6').style.display=document.querySelector('#step6').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p6').style.width=document.querySelector('#step6').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p7').style.display=document.querySelector('#step7').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p7').style.width=document.querySelector('#step7').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p8').style.display=document.querySelector('#step8').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p8').style.width=document.querySelector('#step8').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p9').style.display=document.querySelector('#step9').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p9').style.width=document.querySelector('#step9').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_p10').style.display=document.querySelector('#step10').style.display=='none'?'none':'inline-block';
+				document.querySelector('#lagend_p10').style.width=document.querySelector('#step10').getBoundingClientRect().width+'px';
+				document.querySelector('#lagend_shank').style.width=document.querySelector('#rod').getBoundingClientRect().width+'px';
+		}
+
+		function left(i) {
+				if (i==1)return 0;
+				else return eval('s'+(i-1)+'l') + left(i-1);
+		}
+		function lfdia(i) {
+				if (eval('s'+(i-1)+'l') != 0)return eval('s'+(i-1)+'d2')
+				else return lfdia(i-1);
+		}
+		function d1Chg(el,d){
+			document.querySelector(`input#${d}b`).value=el.value;
+			document.querySelector(`input#${d}bn`).value=el.value;
+			chgL1(el);
+		}
+		function popsubmit(){
+				let pform = document.querySelector('#popform');
+				if(pform.checkValidity()){
+					document.querySelector('#name').value=document.querySelector('#popname').value;
+					document.querySelector('#comapny').value=document.querySelector('#popcname').value;
+					document.querySelector('#mail').value=document.querySelector('#popmail').value;
+					document.querySelector('#region').value=document.querySelector('#popplace').value;
+					document.querySelector('#popBox').classList.remove('open');
+				} else {
+					pform.reportValidity();
+				}
+		}
+		let procount=3;
+		let maxprofiles=10;
+		let minprofile=3;
+		function addprofile(){
+			if(procount>=maxprofiles)return;
+			procount++;
+			if(procount>minprofile){
+				enabledisablebtn('del');
+			}
+			document.querySelector('.addProfile .count').innerHTML=(procount==maxprofiles?'Max':procount)+' profiles';
+			let arr = document.querySelectorAll('.loopProfile');
+			for(let i=0;i<procount;i++){
+				arr[i].style.display='inline-flex';
+			}
+			if(procount>=maxprofiles)enabledisablebtn('del','add');
+		}
+		function delprofile(){
+			if(procount<=minprofile)return;
+			let arr = document.querySelectorAll('.loopProfile');
+			procount--;
+			document.querySelector('.addProfile .count').innerHTML=(procount==maxprofiles?'Max':procount)+' profiles';
+			let deler = arr[procount];
+			deler.querySelectorAll('input[type="range"],input[type="number"]').forEach((item, i) => {
+				item.value=item.getAttribute('value');
+			});
+			deler.querySelectorAll('input[type="checkbox"]').forEach((item, i) => {
+				item.checked=false;
+			});
+			deler.style.display='none';
+			chgL1(deler.querySelector('input[type="range"]'));
+			if(procount<maxprofiles)enabledisablebtn('add');
+			if(procount<=minprofile)enabledisablebtn('add','del');
+		}
+		function enabledisablebtn(a='',b=''){
+			if(b)document.querySelector('.'+b+'Profile').setAttribute('disabled',true);
+			if(a)document.querySelector('.'+a+'Profile').removeAttribute('disabled');
+		}
+		function submit(elm) {
+			elm.innerHTML = "...";
+			var data = {"data": {
+				"mail":document.querySelector('#mail').value,
+				"name":document.querySelector('#name').value,
+				"check":document.querySelector('#check').checked,
+				"phone":document.querySelector('#phone').value,
+				"attach":document.querySelector('#attach').value,
+				"region":document.querySelector('#region').value,
+				"comapny":document.querySelector('#comapny').value,
+				"comment":document.querySelector('#comment').value,
+				"quantity":document.querySelector('#quantity').value,
+				"//step_1//":"",
+				"L1":document.querySelector('#L1').value,
+				"D1":document.querySelector('#D1').value,
+				"D1b":document.querySelector('#D1b').value,
+				"R1":(document.querySelector('#lens1').checked?'concave':'convex' )+' - '+ document.querySelector('#arc1').value,
+				"F1":document.querySelector('#ang1').value,
+				"//step_2//":"",
+				"L2":document.querySelector('#L2').value,
+				"D2":document.querySelector('#D2').value,
+				"D2b":document.querySelector('#D2b').value,
+				"R2":(document.querySelector('#lens2').checked?'concave':'convex' )+' - '+ document.querySelector('#arc2').value,
+				"F2":document.querySelector('#ang2').value,
+				"//step_3//":"",
+				"L3":document.querySelector('#L3').value,
+				"D3":document.querySelector('#D3').value,
+				"D3b":document.querySelector('#D3b').value,
+				"R3":(document.querySelector('#lens3').checked?'concave':'convex' )+' - '+ document.querySelector('#arc3').value,
+				"F3":document.querySelector('#ang3').value,
+				"//step_4//":"",
+				"L4":document.querySelector('#L4').value,
+				"D4":document.querySelector('#D4').value,
+				"D4b":document.querySelector('#D4b').value,
+				"R4":(document.querySelector('#lens4').checked?'concave':'convex' )+' - '+ document.querySelector('#arc4').value,
+				"F4":document.querySelector('#ang4').value,
+				"//step_5//":"",
+				"L5":document.querySelector('#L5').value,
+				"D5":document.querySelector('#D5').value,
+				"D5b":document.querySelector('#D5b').value,
+				"R5":(document.querySelector('#lens5').checked?'concave':'convex' )+' - '+ document.querySelector('#arc5').value,
+				"F5":document.querySelector('#ang5').value,
+				"//step_6//":"",
+				"L6":document.querySelector('#L6').value,
+				"D6":document.querySelector('#D6').value,
+				"D6b":document.querySelector('#D6b').value,
+				"R6":(document.querySelector('#lens6').checked?'concave':'convex' )+' - '+ document.querySelector('#arc6').value,
+				"F6":document.querySelector('#ang6').value,
+				"//step_7//":"",
+				"L7":document.querySelector('#L7').value,
+				"D7":document.querySelector('#D7').value,
+				"D7b":document.querySelector('#D7b').value,
+				"R7":(document.querySelector('#lens7').checked?'concave':'convex' )+' - '+ document.querySelector('#arc7').value,
+				"F7":document.querySelector('#ang7').value,
+				"//step_8//":"",
+				"L8":document.querySelector('#L8').value,
+				"D8":document.querySelector('#D8').value,
+				"D8b":document.querySelector('#D8b').value,
+				"R8":(document.querySelector('#lens8').checked?'concave':'convex' )+' - '+ document.querySelector('#arc8').value,
+				"F8":document.querySelector('#ang8').value,
+				"//step_9//":"",
+				"L9":document.querySelector('#L9').value,
+				"D9":document.querySelector('#D9').value,
+				"D9b":document.querySelector('#D9b').value,
+				"R9":(document.querySelector('#lens9').checked?'concave':'convex' )+' - '+ document.querySelector('#arc9').value,
+				"F9":document.querySelector('#ang9').value,
+				"//step_10//":"",
+				"L10":document.querySelector('#L10').value,
+				"D10":document.querySelector('#D10').value,
+				"D10b":document.querySelector('#D10b').value,
+				"R10":(document.querySelector('#lens10').checked?'concave':'convex' )+' - '+ document.querySelector('#arc10').value,
+				"F10":document.querySelector('#ang10').value,
+				"//shank//":"",
+				"L":document.querySelector('#L').value,
+				"D":document.querySelector('#D').value,
+				"slop":document.querySelector('#slop').value,
+				"weld":document.querySelector('#Wyes').checked?'YES':'NO',
+				"coolant":document.querySelector('#Kyes').checked?'YES':'NO',
+				"//general//":"",
+				"Z":document.querySelector('#cut').value,
+				"helical pitch":document.querySelector('#pch').value,
+				"coating":document.querySelector('select#coat').options[document.querySelector('select#coat').selectedIndex].innerHTML,
+				"cutting dir":document.querySelector('#cdirL').checked?'LEFT':'RIGHT',
+				"helix dir":document.querySelector('#hdirL').checked?'LEFT':'RIGHT',
+				"roughing":document.querySelector('#Ryes').checked?'YES':'NO',
+				"machining_material":document.querySelector('#din').value,
+				"material_hardness":document.querySelector('#hardnesscoff').value,
+				"//extra_features//":"",
+				"cutting strategy":Array.from(document.querySelector('#fea_1').querySelectorAll('div>img.highlight')).map((el,ind)=>{return el.name}).join(", "),
+				"application":Array.from(document.querySelector('#fea_2').querySelectorAll('div>img.highlight')).map((el,ind)=>{return el.name}).join(", "),
+				"features":Array.from(document.querySelector('#fea_3').querySelectorAll('div>img.highlight')).map((el,ind)=>{return el.name}).join(", "),
+				"cooling":Array.from(document.querySelector('#fea_4').querySelectorAll('div>img.highlight')).map((el,ind)=>{return el.name}).join(", ")
+			}}
+			fetch("https://api.apispreadsheets.com/data/zfGZcryXaolfMRra/", {
+				method: "POST",
+				body: JSON.stringify(data),
+			}).then(res =>{
+				if (res.status === 201){
+					console.log('somehow it worked');
+					elm.innerHTML = "Submitted";
+				}
+				else{
+					console.log('lol, failed');
+					elm.innerHTML = "Error, Retry?";
+				}
+			})
+		}
+		document.addEventListener('click', (e)=>{
+			if (document.querySelector('#butts').innerHTML != 'Submit' && 'select input img textarea'.search(e.target.localName)>=0){ document.querySelector('#butts').innerHTML='Submit';}
+		})
+	</script>
+</body>
+
+</html>

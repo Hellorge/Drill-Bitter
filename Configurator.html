@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Configurator</title>
+  <script src="scripts/meta.js"></script>
+
+  <style>
+    body{
+      overflow-x: hidden;
+      margin: 0;
+      font-family: "Manrope",Arial,Helvetica,sans-serif;
+    }
+    #ctrl_tbl{
+      box-shadow: #000 0 0 10px;
+      font-family: arial;
+      color: #fff;
+      background-color: #181818;
+      position: absolute;
+      top: 2%;
+      right: 1%;
+      padding: 20px;
+      letter-spacing: 0.1ch;
+    }
+    #ctrl_tbl tr td:nth-child(3) {
+      display: flex;
+      justify-content: space-around;
+      padding-left: 1em;
+      font-size: inherit;
+    }
+    table select{
+      font-size: 1em;
+      color: inherit;
+      border: 1px solid transparent;
+      background-color: var(--xwhite);
+      padding: .3em 0;
+      flex-grow: .1;
+    }
+    select>option{
+      background-color: #181818;
+    }
+    .shrink_ctrl{
+      background-color: #0e0e0e;
+      outline: none;
+      border: none;
+      color: #fff;
+      font-size: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: .2em;
+    }
+    #info_tbl{
+      box-shadow: #000 0 0 10px;
+      font-family: arial;
+      color: #fff;
+      background-color: #181818;
+      position: absolute;
+      top: 2%;
+      left: 1%;
+      padding: 20px;
+    }
+    #info_tbl{
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      text-align: center;
+      font-size: 1.1em;
+      letter-spacing: .3ch;
+      width: 30vw;
+    }
+    #diagram{
+      width: 30vw;
+      position: relative;
+      font-size: 12px;
+      display: flex;
+      letter-spacing:0.1ch;
+      margin: 2% 0;
+    }
+    
+    #diagram.large_diagram{
+      z-index: 1;
+      position: fixed;
+      top: 10%;
+      left:2.5%;
+      font-size: 20px;
+      width: min(90vw, 1086px);
+      box-shadow: #000 0 0 10px;
+      margin: 0;
+    }
+    #pic{
+      width: max(10vw,150px);
+      position: relative;
+      font-size: 12px;
+      display: flex;
+      letter-spacing:0.1ch;
+      margin: 2% 0;
+    }
+    #pic.large_diagram{
+      z-index: 1;
+      position: fixed;
+      top: 10%;
+      left:2.5%;
+      font-size: 20px;
+      width: min(90vw, 485px);
+      box-shadow: #000 0 0 10px;
+      margin: 0;
+    }
+    #diagram>img,#pic>img{
+      width: 100%;
+      height: 100%;
+    }
+    #diagram>.click,#pic>.click{
+      position: absolute;
+      top: 2%;
+      left: 2%;
+      color: #000;
+      font-size: inherit;
+    }
+    #diagram>.click::after,#pic>.click::after{
+      content: 'enlarge';
+    }
+    #diagram.large_diagram>.click::after,#pic.large_diagram>.click::after{
+      content: 'shrink';
+    }
+    .control{
+      font-size: 15px;
+      letter-spacing: 0;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <table id="ctrl_tbl">
+    <tbody id="ctrl_shrink">
+      <tr>
+        <td>Camera Type</td>
+        <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+        <td>
+          <select name="Control" onchange="controller(this.value);" id="">
+            <option value="false">Orbital</option>
+            <option value="true">TrackBall</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+    <tr><td colspan="3"><button onclick="shrinker(this,'ctrl_shrink')" shrink="Shrink" open='Open' class="shrink_ctrl">Shrink Controls<i style="margin:0 .5em;"><svg style="vertical-align: middle;" height="28px" width="28px" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"/></svg></i></button></td></tr>
+  </table>
+
+  <div id="info_tbl">
+    <div id="info_shrink">
+      <span id="name"></span>
+      <div id="diagram" onclick="enlarge(this);">
+        <img src="" alt="">
+        <span class="click">click to </span>
+      </div>
+      <div id="pic" onclick="enlarge(this)">
+        <img src="" alt="">
+        <span class="click">click to </span>
+      </div>
+      <table>
+        <tbody class="control">
+          <tr>
+            <td colspan="3">Camera Controls :</td>
+          </tr>
+          <tr style="margin-left: 1em;">
+            <td>Rotate</td>
+            <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+            <td>Left mouse button hold.</td>
+          </tr>
+          <tr style="margin-left: 1em;">
+            <td>Move</td>
+            <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+            <td>Right mouse button hold.</td>
+          </tr>
+          <tr style="margin-left: 1em;">
+            <td>Zoom</td>
+            <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+            <td>Wheel / Default Scroll.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button onclick="shrinker(this,'info_shrink')" shrink="Shrink" open='Open' class="shrink_ctrl">Shrink Information<i style="margin:0 .5em;"><svg style="vertical-align: middle;" height="28px" width="28px" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z"/></svg></i></button>
+  </div>
+
+<script>  //everything not related to canvas
+
+  if (location.search.substring(1) == ''){//if no mill name passed from previous menu
+    var mill = 'END MILLS WITH CHAMFER';
+  }
+  else{//get mill name from address bar
+    var mill = location.search.substring(1).replaceAll('%20', ' ');
+  }
+  var mill_params = meta[mill]['parameters'];//meta is meta.js JSON, which has all the available mills and their data
+  var mill_options = meta[mill]['options'];
+  
+
+  (function (params,options) {//self invoking function to set dom element #ctrl_tbl;
+    for(i in params){
+      var row = document.createElement('tr');
+      row.id = params[i];
+      row.classList.add('rows');
+      row.innerHTML = '<td>'+params[i]+'</td><td>&nbsp;&nbsp;:&nbsp;&nbsp;</td><td><select name="'+params[i]+'" id="select'+params[i]+'"></select></td>'
+      document.querySelector('#ctrl_shrink').prepend(row);
+      var row_el = document.querySelector('#'+params[i]);
+      for (j in options[params[i]]){
+        row_el.getElementsByTagName('select')[0].id = 'select'+params[i];
+        row_el.getElementsByTagName('select')[0].options.add( new Option(options[params[i]][j],options[params[i]][j]));
+        row_el.getElementsByTagName('select')[0].lastChild.id = 'id_'+options[params[i]][j];
+      }
+    }
+  })(mill_params.reverse(), mill_options);
+
+  (function(m){//self invoking function to set dom element #info_tbl;
+    document.querySelector('#name').innerHTML = m;
+    document.querySelector('#diagram').querySelector('img').src = './models/'+m+'/diagram.png';
+    document.querySelector('#diagram').querySelector('img').alt = m+' Diagram';
+    document.querySelector('#pic').querySelector('img').src = './models/'+m+'/pic.png';
+    document.querySelector('#pic').querySelector('img').alt = m+' Picture';
+  })(mill);
+
+  document.addEventListener('change', (e)=>{//whenever someone changes DC
+    if (e.target.id != 'selectDC')return;
+    var current = meta[mill]['DC'][e.target.value];
+    for(var i in current){
+      if(i=='MODEL')continue;
+      var for_options = document.querySelector('#select'+i).getElementsByTagName('option');
+      for(var j=0;j<for_options.length;j++){
+        if (current[i].find((e)=>{return e == for_options[j].value})){
+          for_options[j].disabled = false;
+          for_options[j].selected = true;
+        }
+        else{
+          for_options[j].selected = false;
+          for_options[j].disabled = true;
+        }
+      }
+    }
+    scene_render(current);
+  })
+
+  function shrinker(e,el){
+    el = document.querySelector('#'+el);
+    if (el.style.display === 'none'){
+      el.style.display = 'initial';
+      e.innerHTML = e.getAttribute('shrink')+e.innerHTML.slice(4,e.innerHTML.length);
+      e.children[0].style.transform = 'rotateZ(0deg)';
+      if(el.id == 'info_shrink'){document.querySelector('#info_tbl').removeAttribute("style");}
+    }else{
+      el.style.display = 'none';
+      e.innerHTML = e.getAttribute('open')+e.innerHTML.slice(6,e.innerHTML.length);
+      e.children[0].style.transform = 'rotateZ(180deg)';
+      if(el.id == 'info_shrink'){document.querySelector('#info_tbl').style.width = 'auto';}
+    }
+  }
+
+  function enlarge(th){
+    if(document.querySelector('.large_diagram:not(#'+th.id+')')){
+      document.querySelector('.large_diagram').classList.remove('large_diagram');
+    }
+    th.classList.toggle('large_diagram');
+  }
+
+</script>
+
+<script type="module">//everything related to canvas and renderer
+	import { TrackballControls } from './scripts/track.js';
+  import { OrbitControls } from './scripts/orbit.js';
+  import * as THREE from './scripts/module.js';
+  import { STLLoader } from './scripts/STLloader.js';
+
+  var camera, scene, renderer, geometry, material, mesh, controls;
+  var configurator = true;
+
+  init();
+  animate();
+
+  function init() {
+
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0xcccccc);
+
+      /* Camera Start */
+    camera = new THREE.PerspectiveCamera(45, (window.innerWidth)/(window.innerHeight), 0.1, 1000);
+    // position and point the camera to the center of the scene
+    camera.position.x = 100;
+    camera.position.y = 100;
+    camera.position.z = 100;
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
+    scene.add(camera);
+    /* Camera End */
+
+
+    new STLLoader().load( './models/solid.stl', function ( geometry ) {
+    material = new THREE.MeshNormalMaterial();
+    mesh = new THREE.Mesh( geometry, material );
+
+    scene.add( mesh );
+    mesh.geometry.center();
+  } );
+
+
+    var ambientLight = new THREE.AmbientLight(0x0c0c0c);
+    scene.add(ambientLight);
+
+    var spotLight = new THREE.SpotLight(0xffffff);
+    scene.add(spotLight);
+
+    renderer = new THREE.WebGLRenderer({antialias:true});
+    renderer.setSize((window.innerWidth),(window.innerHeight));
+    renderer.domElement.id = 'canvas';
+    document.body.appendChild(renderer.domElement);
+
+    controls = new OrbitControls( camera, renderer.domElement );
+    controls.rotateSpeed = 1.0;
+  	controls.zoomSpeed = 1.2;
+  	controls.panSpeed = 2;
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener( 'resize', () => {
+    const aspect = (window.innerWidth)/(window.innerHeight);
+    camera.aspect = aspect;
+    camera.updateProjectionMatrix();
+    renderer.setSize((window.innerWidth),(window.innerHeight));
+  });
+
+  var controller = function (aa){
+    controls.reset();
+    controls.dispose();
+    if (aa == 'false'){
+      controls = new OrbitControls( camera, renderer.domElement );
+      controls.rotateSpeed = 1.0;
+    }
+    else{
+      controls = new TrackballControls( camera, renderer.domElement );
+      controls.rotateSpeed = 4.0;
+    }
+    controls.update();
+  }
+
+
+  renderer.domElement.addEventListener('mousedown',(e)=>{
+    if(e.button == 0){
+      e.target.style.cursor = 'grabbing';
+    }
+    else if(e.button == 2){
+      e.target.style.cursor = 'move';
+    }
+  });
+  renderer.domElement.addEventListener('wheel',(e)=>{
+    if(e.deltaY < 0){
+      e.target.style.cursor = 'zoom-in';
+    }
+    else if(e.deltaY > 0){
+      e.target.style.cursor = 'zoom-out';
+    }
+    setTimeout(() => {
+      e.target.style.cursor = 'default';
+    }, 500);
+  });
+  renderer.domElement.addEventListener('mouseup',(e)=>{
+    e.target.style.cursor = 'default';
+  });
+  renderer.domElement.addEventListener('keydown',(e)=>{
+    if (e.keyCode == '82')controls.reset();
+  });
+
+  var scene_render = (current)=>{
+    mesh.geometry.dispose();
+    mesh.material.dispose();
+    scene.remove( mesh );
+
+    new STLLoader().load( './models/'+mill+'/'+current['MODEL']+'.stl', function ( geometry ) {
+      material = new THREE.MeshNormalMaterial();
+      mesh = new THREE.Mesh( geometry, material );
+      scene.add( mesh );
+      mesh.geometry.center();
+    } );
+  }
+
+  //functions defined in script[type:module] are not global, below is how to make them global.
+  window.controller = controller;
+  window.scene_render = scene_render;
+</script>
+
+</body>
+</html>
